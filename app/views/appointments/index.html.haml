@@ -5,14 +5,15 @@
 
 %script
   $(document).ready(function(){
-  $('#date_goes_here').datepicker();
+  $('#date_goes_here').datepicker({
+  dateFormat: "dd/mm/yy"});
   });
 
 = error_messages_for @appointment
 
 = form_for @appointment,  :action => resource(:appointments),:id => 'create_event' do
 
-  %h2 Even Name
+  %h2 Event Name
   = text_field :event_name
   
   %h2 What date?
