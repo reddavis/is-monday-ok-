@@ -28,8 +28,8 @@ namespace :deploy do
   task :start do
     before_deploy
     run "cd #{current_path}; rm log -r && mkdir log"
-    run "cd #{current_path}; merb -p 5000 -e production -a thin -d -c 1"
-    run "monit"
+    run "cd #{current_path}; merb -p 5000 -e production -a thin -d -c 2"
+    #run "monit"
   end
   
   task :stop do
@@ -50,6 +50,7 @@ namespace :deploy do
   task :before_deploy do
     #run "monit quit"
     run "cd #{current_path}; merb -K all"
+    sleep(5)
     #run "cd #{current_path}; rm log -r" # Removes PID files just incase
   end
 
