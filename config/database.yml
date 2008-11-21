@@ -1,0 +1,20 @@
+---
+# This is a sample database file for the ActiveRecord ORM
+:development: &defaults
+  :adapter: mysql
+  :database: is_monday_ok_development
+  :username: root
+  :password: 
+  :host: localhost
+  :encoding: utf8
+
+:test:
+  <<: *defaults
+  :database: is_monday_ok_development_test
+
+:production:
+  <<: *defaults
+  :database: is_monday_ok_development_production
+  
+:rake:
+  <<: *defaults

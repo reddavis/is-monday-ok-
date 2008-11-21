@@ -1,0 +1,77 @@
+#information
+  %h2
+    Event - 
+    = @appointment.event_name.capitalize
+
+  %h2
+    Proposed Date - 
+    = @appointment.date.strftime("%d/%m/%y")
+
+  %h2
+    Proposed Start Time - 
+    = @appointment.start_time
+    
+  %h2
+    = @appointment.oks.count
+    = link_to 'People', url(:controller => :oks, :action => :show, :appointment => @appointment.stub) 
+    Give The Thumbs Up
+    
+#left
+  %h2 These are the other proposed times
+  
+  - @appointment.proposed_dates.each do |date|
+    %p 
+      = date.name
+      wants it on
+      = date.date.strftime("%d/%m/%y")
+      at
+      = date.start_time
+      \.
+    %p
+      So can
+      = date.oks.count
+      other 
+      = link_to 'people.', url(:controller => :oks, :action => :show, :proposed_date => date.id)
+      = form_for date.oks.build, :action =>  url(:controller => :oks, :action => :create, :proposed_date => date.id) do
+        = text_field :name, :value => 'I can do then', :onfocus => "this.value = ''"
+        = submit 'Go', :class => 'small_button'
+    %br
+      
+  .clear  
+
+#right_form
+  = error_messages_for @ok
+  %h1
+    Is that Ok with you?
+
+  = form_for @ok, :action => url(:controller => :oks, :action => :create, :appointment => @appointment.stub) do
+    %h2 Your Name
+    = text_field :name
+    %br
+    = submit 'Fine with me', :class => 'submit_button'
+
+%script
+  $(document).ready(function(){
+  $('#date_goes_here').datepicker();
+  });
+
+#right_form
+  = error_messages_for @proposed_date
+  %h1
+    A different time?
+
+  = form_for @proposed_date, :action => url(:controller => :proposed_dates, :action => :create, :appointment => @appointment.stub) do
+    %h2 You Name
+    = text_field :name
+    %h2 What Date Would You Prefer?
+    = text_field :date, :id => 'date_goes_here'
+    %h2 And What Time?
+    = text_field :start_time
+    %br
+    = submit 'What about...', :class => 'submit_button'
+
+    
+    
+    
+    
+    

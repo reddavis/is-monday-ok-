@@ -1,0 +1,14 @@
+#information
+  %h3
+    = link_to 'Back', resource(@appointment)
+
+  %h2 
+    These people give their thumbs up for
+    = @data.date.strftime("%d/%m/%y")
+    at
+    = @data.start_time
+  
+  - @data.oks.each do |ok|
+    %p
+      = ok.name
+  

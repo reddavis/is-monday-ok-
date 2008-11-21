@@ -1,0 +1,17 @@
+!!! Strict
+%html
+  %head 
+    %title Is Monday Ok?
+    = css_include_tag 'master', 'calendar'
+    = js_include_tag 'jquery', 'datepicker'
+    <link rel="shortcut icon" href="/favicon.ico">
+  %body  
+    
+    #header
+      %h1 
+        = link_to 'Is Monday Ok?', '/'
+      
+    #content
+      &= params[:message]
+      = catch_content :for_layout
+  

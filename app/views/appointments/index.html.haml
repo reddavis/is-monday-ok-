@@ -1,0 +1,29 @@
+%h2 About
+
+%p
+  Is Monday Ok? Well is it?! This is a very simple app that allows you to create an event with a "proposed date". You can then send the link out to those who are involved. They can then either say "Yes, that's fine" or "No, but I can do this date". That's it.
+
+%script
+  $(document).ready(function(){
+  $('#date_goes_here').datepicker();
+  });
+
+= error_messages_for @appointment
+
+= form_for @appointment,  :action => resource(:appointments),:id => 'create_event' do
+
+  %h2 Even Name
+  = text_field :event_name
+  
+  %h2 What date?
+  = text_field :date, :id => 'date_goes_here', :value => 'Choose A Date'
+  
+  %h2 
+    What Time Will It Start? 
+    %span{:class => 'specify_am'}
+      <i>(remember to specify am/pm)</i>
+  = text_field :start_time
+  
+  %br
+  = submit "Create", :class => 'submit_button'
+
