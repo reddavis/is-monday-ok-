@@ -6,7 +6,7 @@
 %script
   $(document).ready(function(){
   $('#date_goes_here').datepicker({
-  dateFormat: "dd/mm/yy"});
+  dateFormat: "mm/dd/yy"});
   });
 
 = error_messages_for @appointment
@@ -16,7 +16,10 @@
   %h2 Event Name
   = text_field :event_name
   
-  %h2 What date?
+  %h2 
+    What date?
+    %span{:class => 'specify_am'}
+      <i>(MM/DD/YY)</i>
   = text_field :date, :id => 'date_goes_here', :value => 'Choose A Date'
   
   %h2 
