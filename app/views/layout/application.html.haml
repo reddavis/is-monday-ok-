@@ -14,4 +14,16 @@
     #content
       &= params[:message]
       = catch_content :for_layout
-  
+    
+    #footer
+      %hr
+      %p
+        Like this? You may also like
+        = link_to 'Embedit', 'http://embedit.me'
+        \-
+        = link_to 'Twitter Embed Stream', 'http://twitterembedstream.com'
+        \-
+        = link_to 'Green Thing', 'http://dothegreenthing.com'
+      %p
+        Created by
+        = link_to 'Red Davis', 'http://redwriteshere.com'

@@ -23,6 +23,12 @@ h1 a {color:black;}
   margin-left: auto;
 }
 
+#footer {
+	font-size:0.8em;
+	width:80%;
+	margin:0 auto 0 auto;
+}
+
 p {font-size:1.5em;}
 
 /* Header */
