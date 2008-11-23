@@ -1,7 +1,7 @@
 # Go to http://wiki.merbivore.com/pages/init-rb
  
 # Specify a specific version of a dependency
-dependencies "merb-assets", "merb_helpers", "activesupport"
+dependencies "merb-assets", "merb_helpers", "activesupport", "merb-mailer", "merb-exceptions"
 
 use_orm :activerecord
 use_test :rspec
@@ -18,6 +18,14 @@ end
  
 Merb::BootLoader.before_app_loads do
   # This will get executed after dependencies have been loaded but before your app's classes have loaded.
+  Merb::Plugins.config[:exceptions] = {
+    :email_addresses => ['reddavis@gmail.com'],
+    :app_name        => "Is Monday Ok?",
+    :environments    => ['production'],
+    :email_from      => "exceptions@ismondayok.com",
+    :mailer_config => nil,
+    :mailer_delivery_method => :sendmail
+  }
 end
  
 Merb::BootLoader.after_app_loads do
