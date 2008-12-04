@@ -29,7 +29,7 @@ namespace :deploy do
     before_deploy
     sleep(10)
     run "cd #{current_path}; rm log -rf && mkdir log"
-    run "cd #{current_path}; merb -p 5000 -e production -a thin -d -c 2"
+    run "cd #{current_path}; merb -p 5000 -e production -a thin -d"
     #run "monit"
   end
   
