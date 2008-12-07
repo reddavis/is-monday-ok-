@@ -5,7 +5,7 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 default_run_options[:pty] = true
-set :repository,  "git@gitbase.com:dancingorange/is-monday-ok.git"
+set :repository,  "git@gitbase.com:dancingorange/is-monday-ok/main.git"
 set :scm, "git"
 #set :scm_passphrase, "p@ssw0rd" #This is your custom users password
 set :user, "root"
