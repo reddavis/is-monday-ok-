@@ -49,6 +49,8 @@ p {font-size:1.5em;}
 
 input.submit_button {width:200px;margin-left:90px;border:solid 1px;}
 
+input.show_submit_button {width:100px;border:solid 1px;}
+
 input.small_button {border:solid 1px;width:30px;text-align:center;}
 
 span.specify_am {font-size:0.6em; font}
@@ -78,12 +80,12 @@ input.error {color:red;margin-top:0px;border:solid 2px red;}
 }
 
 #right_form input {
-	font-size:2.0em;
+	font-size:1.2em;
 	margin-bottom:20px;
 }
 
 #left {
-	width:63%;
+	width:55%;
 	margin-right:20px;
 	float:left;
 	height:900px;
